@@ -6,7 +6,7 @@ const initialState ={
      
 }
 const reducer=(state=initialState,action)=>{
-   if(action.type==='AddTodo')
+   if(action.type==='AddToDo')
    {
        return{
         ...state,

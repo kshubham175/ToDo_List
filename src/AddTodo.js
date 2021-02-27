@@ -21,10 +21,10 @@ function handleSubmit(e)
 <form id="form" onSubmit={handleSubmit}>
 <label  >
 Title:
-<input type='text' name='Title' />
+<input type='text' name='Title' required />
 
 Description:
-<input type="text" name="Description" />
+<input type="text" name="Description" required  />
 Status:
 <select   >
     <option ></option>

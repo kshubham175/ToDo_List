@@ -5,57 +5,37 @@ import {useDispatch} from "react-redux";
 export default function AddTodo()
 {
     const dispatch=useDispatch();
-    var Title,Description,Status,Date;
-   function handleTitleChange(e)
-   {
-    Title=e.target.value;
-    Title.trim();
-   }
-   function handleDescriptionChange(e)
-   {
-    Description=e.target.value;
-    Description.trim();
-   }
-   function handleStatusChange(e)
-   {
-    Status=e.target.value;
-    Status.trim();
-   }
-   function handleDateChange(e)
-   {
-    Date=e.target.value;
-    Date.trim();
-   }
+
    
-function handleClick()
+function handleSubmit(e)
 {
-   var temp =[{title:Title,description:Description,status:Status,date:Date}];
+   var temp =[{title:e.target[0].value,description:e.target[1].value,status:e.target[2].value,date:e.target[3].value}];
     
-    dispatch({type:"AddTitle",payload:temp});
+    dispatch({type:"AddToDo",payload:temp});
  
 }
     return( 
         <>
     <header>TO-DO List</header>
     <br/>
-<form id="form" >
+<form id="form" onSubmit={handleSubmit}>
 <label  >
 Title:
-<input type='text' name='Title' onChange={handleTitleChange} />
+<input type='text' name='Title' />
 
 Description:
-<input type="text" name="Description" onChange={handleDescriptionChange}/>
+<input type="text" name="Description" />
 Status:
-<select   onChange={handleStatusChange}>
-    <option selected disabled>Choose</option>
+<select   >
+    <option ></option>
     <option>Done</option>
     <option>Stalled</option>
     <option>Ongoing</option>
     <option>ToDo</option>
 </select>
 Due Date:
-<input type="date" onChange={handleDateChange}/ >
-< button type="button" onClick={handleClick}>Save</button>
+<input type="date" / >
+< button type="submit" >Save</button>
          </label>
 </form>
 <br/>
